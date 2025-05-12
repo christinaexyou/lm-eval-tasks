@@ -14,7 +14,7 @@ from utils import validate_env_args
 
 logger = logging.getLogger("dk-bench-metric")
 
-''' DK-BENCH IMPLEMENTATION FOR LM-EVAL-HARNESS 
+''' DK-BENCH IMPLEMENTATION FOR LM-EVAL-HARNESS
 Based on the InstructLab eval framework (https://github.com/instructlab/instructlab/blob/main/src/instructlab/model/evaluate.py#L30)
 and Ragas' RubricsScore https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/general_purpose/#rubrics-based-scoring
 '''
@@ -65,7 +65,7 @@ def get_input_string(user_input, response, reference):
     return ("{\n"
             f"\t\"user_input\": \"{user_input}\"\n"
             f"\t\"response\": \"{response}\"\n"
-            f"\t\"reference\": \"{reference}\"\n" 
+            f"\t\"reference\": \"{reference}\"\n"
             "}")
 
 
@@ -157,7 +157,7 @@ def evaluate(doc, predictions, total_retries=5):
 
     try:
         # parse the
-        feedback = json.loads(req_response.json()["choices"][0]["message"]["content"])
+        feedback = json.loads(req_response.json())
         logging.debug(f"Judge Response: {feedback}")
     except json.JSONDecodeError:
         result['invalid_score_count'] = 1
