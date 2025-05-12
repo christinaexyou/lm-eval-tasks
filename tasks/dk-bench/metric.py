@@ -157,7 +157,7 @@ def evaluate(doc, predictions, total_retries=5):
 
     try:
         # parse the
-        feedback = json.loads(req_response.json())
+        feedback = req_response.json()
         logging.debug(f"Judge Response: {feedback}")
     except json.JSONDecodeError:
         result['invalid_score_count'] = 1
